@@ -1,5 +1,5 @@
 var songLog = {
-    definitionOfTheEnd: function (data) {
+    definitionOfTheEnd: function (data) { //Функция определния окончания
         var remainderOfTheDivision = data % 10; //Определяем остаток от деления
         if (remainderOfTheDivision == 1) {
             return "ка";
@@ -9,7 +9,7 @@ var songLog = {
             return "ки ";
         }
     },
-    generateSongText: function () {
+    generateSongText: function () { //Функция генерации текста
         var count = 99; //Cчетчик
         var firstEnd, secondEnd; // Окончания предложений
         while (count > 0) {
