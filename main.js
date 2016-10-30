@@ -1,4 +1,3 @@
-//Запуск программы
 var songLog = {
     definitionOfTheEnd: function (data) {
         var remainderOfTheDivision = data % 10; //Определяем остаток от деления
@@ -31,4 +30,5 @@ var songLog = {
     }
 };
 
+//Запуск программы
 songLog.generateSongText();
