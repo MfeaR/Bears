@@ -8,26 +8,23 @@
     <title>Document</title>
 </head>
 <body>
+
 <h2>
     Песня
 </h2>
-<div id="song">
-
-</div>
-
+<div id="song"></div>
 
 <script>
   let songLog = {
     count: 99, //Cчетчик
     definitionOfTheEnd: function (data) { //Функция определния окончания
       let remainderOfTheDivision = data % 10 //Определяем остаток от деления
-      if (remainderOfTheDivision) {
+      if (remainderOfTheDivision)
         return 'ка'
-      } else if (remainderOfTheDivision >= 5 && remainderOfTheDivision <= 9 || data >= 11 && data <= 14) {
+      else if (remainderOfTheDivision >= 5 && remainderOfTheDivision <= 9 || data >= 11 && data <= 14)
         return 'ок'
-      } else {
+      else
         return 'ки'
-      }
     },
     insertElement: function (elementSong, text) {
       let element = document.createElement('div')
@@ -64,6 +61,8 @@
 
   //Запуск программы
   songLog.generateSongText()
+
 </script>
+
 </body>
 </html>
