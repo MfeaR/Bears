@@ -19,7 +19,6 @@
 <script>
   let songLog = {
     count: 99, //Cчетчик
-
     definitionOfTheEnd: function (data) { //Функция определния окончания
       let remainderOfTheDivision = data % 10 //Определяем остаток от деления
       if (remainderOfTheDivision) {
@@ -53,13 +52,12 @@
 
         secondEnd = this.definitionOfTheEnd(this.count) // Определяем второе окончание
 
-        if (!this.count) {
+        if (this.count) {
           this.insertElement(elementSong, `${this.count} бутыл${secondEnd} пива на стене!`)
         } else {
           this.insertElement(elementSong, `Не осталось бутылок пива на стене.`)
         }
         song.appendChild(elementSong)
-
       }
     }
   }
