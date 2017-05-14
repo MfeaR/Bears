@@ -8,6 +8,64 @@
     <title>Document</title>
 </head>
 <body>
-<script src="main.js"></script>
+<h2>
+    Песня
+</h2>
+<div id="song">
+
+</div>
+
+
+<script>
+  let songLog = {
+    count: 99, //Cчетчик
+
+    definitionOfTheEnd: function (data) { //Функция определния окончания
+      let remainderOfTheDivision = data % 10 //Определяем остаток от деления
+      if (remainderOfTheDivision) {
+        return 'ка'
+      } else if (remainderOfTheDivision >= 5 && remainderOfTheDivision <= 9 || data >= 11 && data <= 14) {
+        return 'ок'
+      } else {
+        return 'ки'
+      }
+    },
+    insertElement: function (elementSong, text) {
+      let element = document.createElement('div')
+      let string = document.createTextNode(text)
+      element.appendChild(string)
+      elementSong.appendChild(element)
+    },
+
+    generateSongText: function () { //Функция генерации текста
+      let firstEnd, secondEnd // Окончания предложений
+      let song = document.getElementById("song")
+      while (this.count > 0) {
+        let elementSong = document.createElement("p")
+
+        firstEnd = this.definitionOfTheEnd(this.count)// Определяем первое окончание
+
+        this.insertElement(elementSong, `${this.count} бутыл${firstEnd} пива на стене.`)
+        this.insertElement(elementSong, `${this.count} бутыл${firstEnd} пива!\n`)
+        this.insertElement(elementSong, `Возьми одну, пусти по кругу.`)
+
+        this.count-- //Уменьшаем счетчик
+
+        secondEnd = this.definitionOfTheEnd(this.count) // Определяем второе окончание
+
+        if (!this.count) {
+          this.insertElement(elementSong, `${this.count} бутыл${secondEnd} пива на стене!`)
+        } else {
+          this.insertElement(elementSong, `Не осталось бутылок пива на стене.`)
+        }
+        song.appendChild(elementSong)
+
+      }
+    }
+  }
+
+  //Запуск программы
+  songLog.generateSongText()
+</script>
 </body>
 </html>
